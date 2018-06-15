@@ -28,7 +28,7 @@ UserSchema.pre('save', function(next) {
     })
 })
 
-UserSchema.methods.checkPassword = function(plainTextPW, callBack) {
+UserSchema.methods.checkPassword = function(plainTextPW) {
   return bcrypt.compare(plainTextPW, this.password)
 }
 
