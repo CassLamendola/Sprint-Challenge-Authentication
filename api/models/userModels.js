@@ -18,7 +18,7 @@ const UserSchema = Schema({
 })
 
 UserSchema.pre('save', function(next) {
-  bcrypt.hash(password, SALT_ROUNDS)
+  bcrypt.hash(this.password, SALT_ROUNDS)
     .then( hash => {
       this.password = hash
       return next()
